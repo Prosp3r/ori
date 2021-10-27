@@ -1,0 +1,16 @@
+#FROM golang:1.12.0-alpine3.9
+FROM golang:alpine
+RUN apk add git
+RUN go get gitlab.com/Prosp3r/ori/pb
+RUN go get google.golang.org/grpc
+RUN go get google.golang.org/grpc/reflection
+RUN mkdir /app
+COPY ./cli-client /app/
+COPY ./pb /pb
+RUN ls -l
+WORKDIR /app
+RUN ls /app/ -l
+RUN go build -o main .
+EXPOSE 8080
+RUN ls /app/ -l
+CMD ["/app/main"]

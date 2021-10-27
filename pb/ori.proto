@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package ori;
+
+message ORIDivideRequest {
+    double a = 1;
+    double b = 2;
+}
+
+message ORIDivideResponse {
+    double result = 1;
+}
+
+message ORISumRequest {
+    double a = 1;
+    double b = 2;
+}
+
+message ORISumResponse {
+    double result = 1;
+}
+
+
+message ORISutractRequest {
+    double a = 1;
+    double b = 2;
+}
+
+message ORIMultiplyResponse {
+    double result = 1;
+}
+
+message ORIMultiplyRequest {
+    double a = 1;
+    double b = 2;
+}
+
+message ORISutractResponse {
+    double result = 1;
+}
+
+service ORIService {
+    rpc Divide (ORIDivideRequest) returns (ORIDivideResponse){}
+    rpc Sum (ORISumRequest) returns (ORISumResponse){}
+    rpc Sutract (ORISutractRequest) returns (ORISutractResponse){}
+    rpc Multiply(ORIMultiplyRequest) returns(ORIMultiplyResponse){}
+}
